@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-bind="titulo-pestana">LA BASE 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26"><polygon points="12,2 21,7 21,17 12,22 3,17 3,7" fill="none" stroke="currentColor" stroke-width="1.6"/><polygon points="12,2 21,7 12,12 3,7" fill="currentColor"/></svg>
+      </span>
+      <div>
+        <h1 id="nombre-tienda">LA BASE 3D</h1>
+        <p id="bajada-tienda" class="brand__bajada">Impresión 3D · Trinidad, Tucumán</p>
+      </div>
+    </div>
+    <button id="btn-abrir-carrito" class="btn-carrito" aria-haspopup="dialog" aria-controls="panel-carrito">
+      <span class="btn-carrito__icono">🧺</span>
+      <span>Pedido</span>
+      <span id="contador-carrito" class="btn-carrito__contador">0</span>
+    </button>
+  </div>
+</header>
+
+<nav id="filtros" class="filtros" aria-label="Filtrar por categoría"></nav>
+
+<main id="grilla" class="grilla" aria-live="polite">
+  <!-- las tarjetas de producto se insertan acá por JS -->
+</main>
+
+<p id="sin-productos" class="sin-productos" hidden>
+  Todavía no hay productos cargados. Entrá a <a href="/admin">/admin</a> para agregar el primero.
+</p>
+
+<div id="overlay-carrito" class="overlay" hidden></div>
+<aside id="panel-carrito" class="panel-carrito" role="dialog" aria-modal="true" aria-label="Tu pedido" hidden>
+  <div class="panel-carrito__header">
+    <h2>Tu pedido</h2>
+    <button id="btn-cerrar-carrito" class="btn-cerrar" aria-label="Cerrar">✕</button>
+  </div>
+
+  <div id="lista-carrito" class="lista-carrito">
+    <p class="carrito-vacio">Todavía no agregaste nada.</p>
+  </div>
+
+  <div class="panel-carrito__footer">
+    <div class="total-linea">
+      <span>Total</span>
+      <span id="total-carrito">$0</span>
+    </div>
+    <div class="aviso-entrega">
+      <span class="aviso-entrega__icono">⚠</span>
+      <p><strong id="aviso-titulo">Antes de confirmar</strong><br>
+      <span id="aviso-texto">Consultanos los días de entrega. Coordinamos punto de encuentro en Concepción.</span></p>
+    </div>
+    <a id="btn-enviar-whatsapp" class="btn-whatsapp" target="_blank" rel="noopener">
+      Enviar pedido por WhatsApp
+    </a>
+    <p class="nota-whatsapp">Se abre WhatsApp con tu pedido ya escrito. Solo tenés que apretar enviar.</p>
+  </div>
+</aside>
+
+<div id="overlay-aviso" class="overlay" hidden></div>
+<div id="modal-aviso" class="modal-aviso" role="dialog" aria-modal="true" aria-labelledby="modal-aviso-titulo" hidden>
+  <span class="modal-aviso__icono">⚠</span>
+  <h2 id="modal-aviso-titulo">Antes de confirmar</h2>
+  <p id="modal-aviso-texto">Consultanos los días de entrega. Coordinamos punto de encuentro en Concepción.</p>
+  <button id="btn-cerrar-aviso" class="btn-entendido">Entendido</button>
+</div>
+
+<footer class="footer">
+  <p>Catálogo hecho con ♥ · Panel de administración en <a href="/admin">/admin</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

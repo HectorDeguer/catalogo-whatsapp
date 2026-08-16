@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Guarda las imágenes subidas dentro del repo, en /images/uploads
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+publish_mode: simple
+
+collections:
+  - name: "productos"
+    label: "Productos"
+    label_singular: "Producto"
+    folder: "data/productos"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    format: "json"
+    summary: "{{nombre}} — $ {{precio}}"
+    fields:
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Precio", name: "precio", widget: "number", value_type: "float" }
+      - { label: "Descripción", name: "descripcion", widget: "text", required: false }
+      - { label: "Categoría", name: "categoria", widget: "string", required: false, hint: "Ej: Mates, Dulces, Textiles" }
+      - { label: "Foto", name: "foto", widget: "image" }
+      - { label: "Disponible", name: "disponible", widget: "boolean", default: true }
+
+  - name: "config"
+    label: "Ajustes de la tienda"
+    files:
+      - name: "general"
+        label: "General"
+        file: "data/config.json"
+        fields:
+          - { label: "Nombre de la tienda", name: "nombre_tienda", widget: "string" }
+          - { label: "Bajada / eslogan", name: "bajada", widget: "string", required: false }
+          - { label: "WhatsApp (con código de país, sin +, sin espacios)", name: "whatsapp", widget: "string", hint: "Ejemplo Argentina: 5493811234567" }
+          - { label: "Mensaje inicial del pedido", name: "mensaje_saludo", widget: "string" }
+          - { label: "Título del aviso antes de confirmar", name: "aviso_titulo", widget: "string" }
+          - { label: "Texto del aviso antes de confirmar", name: "aviso_texto", widget: "text", hint: "Ej: días de entrega, punto de encuentro, etc." }
