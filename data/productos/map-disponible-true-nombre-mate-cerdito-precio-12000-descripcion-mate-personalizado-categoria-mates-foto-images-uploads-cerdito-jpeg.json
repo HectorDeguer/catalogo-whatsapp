@@ -1,0 +1,8 @@
+{
+  "disponible": true,
+  "nombre": "Mate cerdito",
+  "precio": 12000,
+  "descripcion": "Mate personalizado.",
+  "categoria": "Mates",
+  "foto": "/images/uploads/cerdito.jpeg"
+}
